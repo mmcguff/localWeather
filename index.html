@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-    
-    </body>
+
+<head>
+    <title>McGuff's Local Weather App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>McGuff's Local Weather App</h1>
+    <!--Get the users location-->
+
+    <!--Find the weather in that location.  Plug into a weather API to get the -->
+
+
+    <button onclick="getLocation()">Try It</button>
+
+    <p id="demo"></p>
+
+    <script>
+        var x = document.getElementById("demo");
+        var lat;
+        var long; 
+
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(setPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function setPosition(position) {
+            lat  = position.coords.latitude;
+            long = position.coords.longitude;
+
+            //need to take this url and generate the stuff you will need to get your wather app working. 
+           var json =  'https://fcc-weather-api.glitch.me/api/current?lat='+lat+'&lon='+long;
+
+        }
+
+
+
+
+
+    </script>
+
+
+</body>
+
 </html>
