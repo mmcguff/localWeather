@@ -14,26 +14,48 @@
 
 <body>
     <h1>McGuff's Local Weather App</h1>
-    <!--Get the users location-->
 
-    <!--Find the weather in that location.  Plug into a weather API to get the -->
-    
     <p id="demo"></p>
     <div class="contianer">
-    <div class="well">
-        <div id="fcc_location">Idaho Falls, ID</div>
-        <div id="time">Tuesday 5:00AM</div>
-        <div id="fcc_description">Cloudy</div>
-        <div id="fcc_weather_icon"></div>
-        <div id="fcc_temperature">Temperature: 65°F</div>
-        <div id="fcc_precipitation"> Precipitation: 20%</div>
-        <div id="fcc_humidity">Humidity: 75%</div>
-        <div id="fcc_wind_speed">20 mph NE</div>
-        <div id="fcc_wind_direction"></div>
-    </div>
+        
+            <table class="well">
+                <tr>
+                    <td>
+                        <div id="fcc_location">Idaho Falls, ID</div>
+                    </td>
+                    <td>
+                        <div id="fcc_precipitation"> Precipitation: 20%</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="time">Tuesday, 5:00AM</div>
+                    </td>
+                    <td>
+                        <div id="fcc_humidity">Humidity: 75%</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="fcc_description">Cloudy</div>
+                    </td>
+                    <td>
+                        <div id="fcc_wind_speed">Wind: 20 mph NE </div><!--<div id="fcc_wind_direction">NE</div>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <div id="fcc_weather_icon">Icon</div>
+                    </td>
+                    <td>
+                         <div id="fcc_temperature">Temperature: 65°F</div>
+                    </td>
+                </tr>
+            </table>
+        
     </div>
 
-    <button onclick="getLocation()">Try It</button>
+    <button onclick="getLocation()">Get local weather</button>
 
 </body>
 
