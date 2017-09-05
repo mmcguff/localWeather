@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="javascript.js"></script>
     <link href="style.css" rel="stylesheet">
 </head>
 
@@ -33,36 +34,6 @@
     </div>
 
     <button onclick="getLocation()">Try It</button>
-
-    <script>
-        var x = document.getElementById("demo");
-        var lat;
-        var long; 
-
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(setPosition);
-            } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-        }
-
-        function setPosition(position) {
-            lat  = position.coords.latitude;
-            long = position.coords.longitude;
-    
-            //need to take this url and generate the stuff you will need to get your wather app working. 
-           var json =  'https://fcc-weather-api.glitch.me/api/current?lat='+lat+'&lon='+long;
-            alert(json);
-        }
-
-
-
-
-
-    </script>
-
 
 </body>
 
