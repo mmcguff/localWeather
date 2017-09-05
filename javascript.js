@@ -1,10 +1,12 @@
 
+    
 
+    
 var x = document.getElementById("demo");
 var lat;
 var long;
 
-
+//Get the users location
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(setPosition);
@@ -13,6 +15,7 @@ function getLocation() {
     }
 }
 
+//Find the weather in that location.  Plug into a weather API to get the
 function setPosition(position) {
     lat = position.coords.latitude;
     long = position.coords.longitude;
