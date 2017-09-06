@@ -21,6 +21,10 @@ function showPosition(position) {
         var obj = JSON.parse(this.responseText);
        
         document.getElementById("fcc_location").innerHTML = obj.name;
+        document.getElementById("time").innerHTML = getTime();
+        document.getElementById("fcc_description").innerHTML = obj.weather[0].description;
+        document.getElementById("fcc_weather_icon").innerHTML = JSON.parse(obj.weather[0].icon);
+   
         document.getElementById("fcc_temp").innerHTML = obj.main.temp + " C";
     }
 };
@@ -49,5 +53,24 @@ function showError(error) {
             x.innerHTML = "An unknown error occurred."
             break;
     }
+}
+
+function getTime()
+{
+    var date = new Date();
+    var weekday = new Array(7);
+    weekday[0] =  "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    var dayOfWeek = weekday[date.getDay()];
+    var localTime = date.toLocaleTimeString();
+
+    return dayOfWeek + ","  + localTime;
+
 }
 
