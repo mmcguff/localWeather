@@ -29,13 +29,21 @@ function showPosition(position) {
         document.getElementById("fcc_description").innerHTML = obj.weather[0].description;
         document.getElementById("fcc_weather_icon").innerHTML ="<img id='icon' src=" + obj.weather[0].icon + ">";
         document.getElementById("fcc_temp_label").innerHTML = "<b>Temperature: </b>";
-        document.getElementById("fcc_temp").innerHTML = obj.main.temp + "°C";
+        
+        var temp = convertToF();
+        
+        document.getElementById("fcc_temp").innerHTML = "<span id='t' onClick='convertToC()'>" + temp + "</span> °F";
+        document.getElementsByTagName("TITLE")[0].text = temp + " °F | " + obj.name;
+
+
+
         document.getElementById("fcc_humidity_label").innerHTML = "<b>Humidity: </b>";
         document.getElementById("fcc_humidity").innerHTML = obj.main.humidity + "%";
         document.getElementById("fcc_wind_speed_label").innerHTML = "<b>Wind Speed: </b>";
         document.getElementById("fcc_wind_speed").innerHTML = obj.wind.speed + " mph  " + getWindDirection(obj.wind.deg);
-        document.getElementById("fcc_temp").innerHTML = convertToF(obj.main.temp) + " °F";
-        document.getElementsByTagName("TITLE")[0].text = convertToF(obj.main.temp) + " °F | " + obj.name;
+
+
+     
         //document.getElementsByName("HEAD")[0].appendChild(obj.weather[0].icon);
 
     }
@@ -112,14 +120,20 @@ if (wBearing >= 303.75 && wBearing < 326.25) { return wDir = "NW";} else
 
 
 //lets create a convert to Farenthiet function as well. 
-function convertToF(c)
+function convertToF()
 {
-    return Math.round((c * 1.8 + 32) * 100) /100;
+    var c = document.getElementById('t').innerHTML;
+    var f = Math.round((c * 1.8 + 32) * 100) /100;
+    document.getElementById("fcc_temp").innerHTML = "<span id='t' onClick='convertToC()'>" + c + " °F</span>";
+
 
 }
 
-function convertToC(f)
+function convertToC()
 {
-    return (f - 32) / 1.8;
+    var f = document.getElementById('t').innerHTML;
+    var c = Math.round(((f - 32) / 1.8) * 100)/100;
+    document.getElementById("fcc_temp").innerHTML = "<span id='t' onClick='convertToF()'>" + c + " °C</span>";
+
 }
  
