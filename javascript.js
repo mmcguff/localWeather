@@ -20,11 +20,18 @@ function showPosition(position) {
     if (this.readyState == 4 && this.status == 200) {
         var obj = JSON.parse(this.responseText);
        
+        document.getElementById("fcc_location_label").innerHTML = "<b>Location: </b>";
         document.getElementById("fcc_location").innerHTML = obj.name;
+        document.getElementById("fcc_time_label").innerHTML = "<b>Time: </b>";
         document.getElementById("time").innerHTML = getTime();
+        document.getElementById("fcc_description_label").innerHTML = "<b>Description: </b>";
         document.getElementById("fcc_description").innerHTML = obj.weather[0].description;
         document.getElementById("fcc_weather_icon").innerHTML ="<img src=" + obj.weather[0].icon + ">";
+        document.getElementById("fcc_temp_label").innerHTML = "<b>Temperature: </b>";
+        document.getElementById("fcc_temp").innerHTML = obj.main.temp + "°C";
+        document.getElementById("fcc_humidity_label").innerHTML = "<b>Humidity: </b>";
         document.getElementById("fcc_humidity").innerHTML = obj.main.humidity + "%";
+        document.getElementById("fcc_wind_speed_label").innerHTML = "<b>Wind Speed: </b>";
         document.getElementById("fcc_wind_speed").innerHTML = obj.wind.speed + " mph  " + getWindDirection(obj.wind.deg);
         document.getElementById("fcc_temp").innerHTML = obj.main.temp + "°C";
     }
@@ -71,7 +78,7 @@ function getTime()
     var dayOfWeek = weekday[date.getDay()];
     var localTime = date.toLocaleTimeString();
 
-    return dayOfWeek + ","  + localTime;
+    return localTime;
 
 }
 

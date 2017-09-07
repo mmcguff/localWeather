@@ -12,24 +12,30 @@
     <link href="style.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="getLocation()">
     <h1>McGuff's Weather App</h1>
 
     <div class="contianer">
         
-            <table class="well well-lg">
+            <table class="well well-lg" >
                 <tr>
+                    <td>
+                        <div id="fcc_location_label"></div>
+                    </td>
                     <td>
                         <div id="fcc_location"></div>
                     </td>
-                    <td style="width: 30%">
+                    <td>
                         <div id="fcc_temp_label"></div>
                     </td>
-                    <td style="width: 20%">
+                    <td>
                          <div id="fcc_temp"></div>
                     </td>
                 </tr>
                 <tr>
+                    <td>
+                        <div id="fcc_time_label"></div>
+                    </td>
                     <td>
                         <div id="time"></div>
                     </td>
@@ -42,6 +48,9 @@
                 </tr>
                 <tr>
                     <td>
+                        <div id="fcc_description_label"></div>
+                    </td>
+                    <td>
                         <div id="fcc_description"></div>
                     </td>
                     <td>
@@ -52,21 +61,17 @@
                     </td>
                 </tr>
                 <tr>
+                    <td></td>
                     <td>
                          <div id="fcc_weather_icon"></div>
                     </td>
-                    <td>
-                         
-                    </td>
-                    <td>
-                        
-                    </td>
+                    <td></td>
                 </tr>
             </table>
         
     </div>
 
-    <button id="getWeather" onclick="getLocation()">Get local weather</button>
+    <button id="getWeather" onclick="getLocation()">Refresh</button>
 
     <div id="msg"></div>
 
