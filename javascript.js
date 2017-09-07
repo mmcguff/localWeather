@@ -19,7 +19,8 @@ function showPosition(position) {
     xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var obj = JSON.parse(this.responseText);
-       
+           
+
         document.getElementById("fcc_location_label").innerHTML = "<b>Location: </b>";
         document.getElementById("fcc_location").innerHTML = obj.name;
         document.getElementById("fcc_time_label").innerHTML = "<b>Time: </b>";
@@ -33,7 +34,10 @@ function showPosition(position) {
         document.getElementById("fcc_humidity").innerHTML = obj.main.humidity + "%";
         document.getElementById("fcc_wind_speed_label").innerHTML = "<b>Wind Speed: </b>";
         document.getElementById("fcc_wind_speed").innerHTML = obj.wind.speed + " mph  " + getWindDirection(obj.wind.deg);
-        document.getElementById("fcc_temp").innerHTML = obj.main.temp + "°C";
+        document.getElementById("fcc_temp").innerHTML = convertToF(obj.main.temp) + " °F";
+        document.getElementsByTagName("TITLE")[0].text = convertToF(obj.main.temp) + " °F | " + obj.name;
+        //document.getElementsByName("HEAD")[0].appendChild(obj.weather[0].icon);
+
     }
 };
 xmlhttp.open("GET", url, true);
@@ -108,5 +112,14 @@ if (wBearing >= 303.75 && wBearing < 326.25) { return wDir = "NW";} else
 
 
 //lets create a convert to Farenthiet function as well. 
+function convertToF(c)
+{
+    return Math.round((c * 1.8 + 32) * 100) /100;
 
-//lets include the wind direction function also. 
+}
+
+function convertToC(f)
+{
+    return (f - 32) / 1.8;
+}
+ 
