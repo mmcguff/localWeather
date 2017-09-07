@@ -26,7 +26,7 @@ function showPosition(position) {
         document.getElementById("time").innerHTML = getTime();
         document.getElementById("fcc_description_label").innerHTML = "<b>Description: </b>";
         document.getElementById("fcc_description").innerHTML = obj.weather[0].description;
-        document.getElementById("fcc_weather_icon").innerHTML ="<img src=" + obj.weather[0].icon + ">";
+        document.getElementById("fcc_weather_icon").innerHTML ="<img id='icon' src=" + obj.weather[0].icon + ">";
         document.getElementById("fcc_temp_label").innerHTML = "<b>Temperature: </b>";
         document.getElementById("fcc_temp").innerHTML = obj.main.temp + "°C";
         document.getElementById("fcc_humidity_label").innerHTML = "<b>Humidity: </b>";

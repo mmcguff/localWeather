@@ -28,6 +28,9 @@ table, #getWeather, h1 {
 
 
 
+
+
+
 td, th 
 {
     /*border: 1px solid #dddddd;*/
@@ -38,6 +41,20 @@ td, th
 #fcc_weather_icon
 {
     width: 100%;
+    
+}
+
+#icon, #getWeather 
+{
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.contianer, .well
+{
+
+    width: 400px;
 }
 
 
