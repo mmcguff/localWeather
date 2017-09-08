@@ -34,9 +34,7 @@ function showPosition(position) {
              
         document.getElementById("fcc_temp").innerHTML ="<span id='temp'>"+temp+"</span> °C";
         convertToF();
-
-
-       // document.getElementsByTagName("TITLE")[0].text = temp + " °F | " + obj.name;
+        
 
 
 
@@ -125,18 +123,22 @@ if (wBearing >= 303.75 && wBearing < 326.25) { return wDir = "NW";} else
 //lets create a convert to Farenthiet function as well. 
 function convertToF()
 {
+    var loc = document.getElementById("fcc_location").innerHTML;
     var c = document.getElementById('temp').innerHTML;
     var f = Math.round((c * 1.8 + 32) * 100) /100;
     document.getElementById("fcc_temp").innerHTML = "<span id='temp' onClick='convertToC()'>" + f + "</span><a onClick='convertToC()'> °F</a>";
+    document.getElementsByTagName("TITLE")[0].text = f + " °F | " + loc;
 
 
 }
 
 function convertToC()
 {
+    var loc = document.getElementById("fcc_location").innerHTML;
     var f = document.getElementById('temp').innerHTML;
     var c = Math.round(((f - 32) / 1.8) * 100)/100;
     document.getElementById("fcc_temp").innerHTML = "<span id='temp' onClick='convertToF()'>" + c + "</span><a onClick='convertToF()'> °C</a>";
+    document.getElementsByTagName("TITLE")[0].text = c + " °C | " + loc;
 
 }
  
